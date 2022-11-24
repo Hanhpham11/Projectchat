@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Label label1;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegis));
             this.txbCpass = new System.Windows.Forms.TextBox();
             this.txbPass = new System.Windows.Forms.TextBox();
             this.txbName = new System.Windows.Forms.TextBox();
@@ -61,6 +62,7 @@
             // 
             // txbCpass
             // 
+            this.txbCpass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txbCpass.Location = new System.Drawing.Point(199, 321);
             this.txbCpass.Margin = new System.Windows.Forms.Padding(2);
             this.txbCpass.Multiline = true;
@@ -68,10 +70,10 @@
             this.txbCpass.PasswordChar = '*';
             this.txbCpass.Size = new System.Drawing.Size(294, 33);
             this.txbCpass.TabIndex = 27;
-            this.txbCpass.UseSystemPasswordChar = true;
             // 
             // txbPass
             // 
+            this.txbPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txbPass.Location = new System.Drawing.Point(199, 247);
             this.txbPass.Margin = new System.Windows.Forms.Padding(2);
             this.txbPass.Multiline = true;
@@ -79,10 +81,10 @@
             this.txbPass.PasswordChar = '*';
             this.txbPass.Size = new System.Drawing.Size(294, 33);
             this.txbPass.TabIndex = 26;
-            this.txbPass.UseSystemPasswordChar = true;
             // 
             // txbName
             // 
+            this.txbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txbName.Location = new System.Drawing.Point(199, 171);
             this.txbName.Margin = new System.Windows.Forms.Padding(2);
             this.txbName.Multiline = true;
@@ -92,6 +94,7 @@
             // 
             // txbUs
             // 
+            this.txbUs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txbUs.Location = new System.Drawing.Point(199, 92);
             this.txbUs.Margin = new System.Windows.Forms.Padding(2);
             this.txbUs.Multiline = true;
@@ -245,7 +248,7 @@
             this.AcceptButton = this.btn_Signup;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-           
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(542, 572);
             this.Controls.Add(this.btn_Login);
             this.Controls.Add(this.btn_Signup);
@@ -262,8 +265,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmRegis";
             this.Text = "FrmRegis";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmRegis_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

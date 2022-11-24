@@ -31,35 +31,46 @@ namespace Server
             string pass = txbPass.Text;
             if (user == null || user.Equals(""))
             {
-                lblNotiUser.Text = "Username is Empty!";
+                
+                lblNotiUser.Text = "Nhập số điện thoại";
                 txbUsername.Focus();
             }
-            else if (pass == null || pass.Equals(""))
+            else if (user.Length < 10)
             {
-                lblNotiPas.Text = "Password is Empty!";
-                txbPass.Focus();
-            }
-            conn.Open();
-            string sql = " select * from[User] where Taikhoan= '" + user + "'and matkhau='" + pass + "'";
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            SqlDataReader dt = cmd.ExecuteReader();
-            if (dt.Read())
-            {
-                //MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                FrmServer frmM = new FrmServer();
-                frmM.Show();
-                this.Hide();
                 
+                    lblNotiUser.Text = "Số điện thoại không chính xác";
+                    txbUsername.Focus();
+            }
+            if (pass == null || pass.Equals(""))
+            {
+                lblNotiPas.Text = "Nhập mật khẩu";
+                txbPass.Focus();
+            }else if (pass.Length < 8)
+            {
+                
+                    lblNotiPas.Text = "Độ dài mật khẩu phải dài hơn 8 ký tự";
+                    txbUsername.SelectAll();
             }
             else
             {
-                MessageBox.Show("Username hoặc Password không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                conn.Close();
-                return;
+                conn.Open();
+                string sql = " select * from[User] where Taikhoan= '" + user + "'and matkhau='" + pass + "'";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataReader dt = cmd.ExecuteReader();
+                if (dt.Read())
+                {
+                    //MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    FrmServer frmM = new FrmServer();
+                    frmM.Show();
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Username hoặc Password không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    conn.Close();
+                    return;
+                }
             }
-
-            
-
         }
     }
 }

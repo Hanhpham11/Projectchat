@@ -31,33 +31,45 @@ namespace Client
             string pass = txbPass.Text;
             if (username == null || username.Equals(""))
             {
-                MessageBox.Show("Username Empty!");
+                lblNotiUser.Text = "Nhập số điện thoại";               
                 txbUsername.Focus();
 
             }
+            else if(username.Length < 10)
+            {
+                lblNotiUser.Text = "Số điện thoại không chính xác";
+                txbUsername.Focus();
+            }
             if (pass == null || pass.Equals(""))
             {
-                MessageBox.Show("Password Empty!");
+                lblNotiPas.Text = "Nhập mật khẩu";               
                 txbPass.Focus();
-            }
-            conn.Open();
-            string sql = "select * from [C_user] where Username='" + username + "' and Password='" + pass + "'";
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            SqlDataReader dt = cmd.ExecuteReader();
-            if (dt.Read())
+            }else if( pass.Length < 8)
             {
-                string Fullname = dt["Fullname"].ToString();
-                FrmClient frM = new FrmClient(Fullname);
-                frM.Show();// hiển thị from chính
-                this.Hide();// ản from đăng nhập
-
+                lblNotiUser.Text = "Số điện thoại không chính xác";
+                txbUsername.Focus();
             }
             else
             {
-                MessageBox.Show("Username hoặc Password không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                conn.Close();
-                return;
+                conn.Open();
+                string sql = "select * from [C_user] where Username='" + username + "' and Password='" + pass + "'";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                SqlDataReader dt = cmd.ExecuteReader();
+                if (dt.Read())
+                {
+                    string Fullname = dt["Fullname"].ToString();
+                    FrmClient frM = new FrmClient(Fullname);
+                    frM.Show();// hiển thị from chính
+                    this.Hide();// ản from đăng nhập
 
+                }
+                else
+                {
+                    MessageBox.Show("Username hoặc Password không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    conn.Close();
+                    return;
+
+                }
             }
         }
 

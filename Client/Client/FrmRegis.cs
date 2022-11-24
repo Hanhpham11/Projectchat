@@ -30,35 +30,36 @@ namespace Client
             string sql = "insert into [C_user] values('" + user + "','" + Fullname + "','" + pass + "','" + Cpass + "')";
             if (user == null || user.Equals(""))
             {
-                lblNoiUs.Text = "Enter Username";
+                lblNoiUs.Text = "Nhập số điện thoại";
                 txbUs.Focus();
             }
-            else if (Fullname == null || Fullname.Equals(""))
+            if (Fullname == null || Fullname.Equals(""))
             {
-                lblNoiName.Text = "Enter full name!";
+                lblNoiName.Text = "Nhập họ tên";
                 txbName.Focus();
             }
-            else if (pass == null || pass.Equals(""))
+            if (pass == null || pass.Equals(""))
             {
-                lblNoiPas.Text = "Enter a password!";
+                lblNoiPas.Text = "Nhập mật khẩu";
                 txbPass.Focus();
             }
-            else if (Cpass != pass)
+            if (Cpass != pass)
             {
                 try
                 {
                     n = int.Parse(user);
+
                 }
                 catch (Exception)
                 {
 
-                    lblNoiUs.Text = "Enter a phone number!";
+                    lblNoiUs.Text = "Nhập số điện thoại";
                     txbUs.Focus();
                     txbUs.SelectAll();
 
                 }
 
-                lblNoiCpass.Text = "Those password didn't match. Try again";
+                lblNoiCpass.Text = "Mật khẩu đã nhập không khớp. Hãy thử lại";
                 txbCpass.Focus();
                 txbCpass.SelectAll();
                 return;
@@ -69,20 +70,33 @@ namespace Client
                 try
                 {
                     n = int.Parse(user);
+                   
                 }
                 catch (Exception)
                 {
 
-                    lblNoiUs.Text = "Enter a phone number!";
+                    lblNoiUs.Text = "Nhập số điện thoại";
                     txbUs.Focus();
                     txbUs.SelectAll();
 
                 }
-                acc.ExcuteNonQuery(sql);// thuc thi query
-                MessageBox.Show("Đăng ký thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                FrmClient frM = new FrmClient(Fullname);
-                frM.Show();
-                this.Hide();
+                if (user.Length < 10||pass.Length<8)
+                {
+                    lblNoiUs.Text = "Số điện thoại không chính xác";
+                    lblNoiPas.Text = "Độ dài mật khẩu phải dài hơn 8 ký tự";
+                    txbUs.Focus();
+                    txbUs.SelectAll();
+                    
+                }
+                else
+                {
+                    acc.ExcuteNonQuery(sql);// thuc thi query
+                    MessageBox.Show("Đăng ký thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    FrmClient frM = new FrmClient(Fullname);
+                    frM.Show();
+                    this.Hide();
+                }
+                
             }
         }
 
@@ -106,7 +120,7 @@ namespace Client
             catch (Exception)
             {
 
-                lblNoiUs.Text = "Enter a phone number!";
+                lblNoiUs.Text = "Nhập số điện thoại";
                 txbUs.Focus();
                 txbUs.SelectAll();
 
@@ -115,10 +129,16 @@ namespace Client
             {
                 if (dr["Username"].ToString().ToUpper() == txbUs.Text.ToUpper())
                 {
-                    lblNoiUs.Text = "That username is taken.Try another!";
+                    lblNoiUs.Text = "Số điện thoại đó đã được sử dụng. Hãy thử một tên người dùng khác!";
                     txbUs.SelectAll();
                 }
             }
+        }
+
+        private void FrmRegis_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+            this.Close();
         }
     }
 }

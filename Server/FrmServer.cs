@@ -72,7 +72,7 @@ namespace Server
         {
             if (client != null && txtMessenger.Text != string.Empty)
             {
-                client.Send(Serialize(txtMessenger.Text));
+                client.Send(Serialize("Server:" + txtMessenger.Text));
             }
         }
         //Nhận tin
@@ -151,13 +151,13 @@ namespace Server
         void AddMessage(string s)
         {
             DateTime dt = DateTime.Now;
-            lVChat.Items.Add(new ListViewItem() { Text = "Server:" + s + " " + "(" + dt.Hour + ":" + dt.Minute + ")" });
+            lVChat.Items.Add(new ListViewItem() { Text =  s + " " + "(" + dt.Hour + ":" + dt.Minute + ")" });
         }
         private void btn_send_Click(object sender, EventArgs e)
         {
             foreach (Socket item in clientList)
             {
-                Send(item);
+                Send( item);
             }
             AddMessage(txtMessenger.Text);
             txtMessenger.Clear();
