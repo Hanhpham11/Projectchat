@@ -50,8 +50,9 @@ namespace Client
             listen.IsBackground = true;
             listen.Start();
         }
+
         //Đóng kết nối hiện thời 
-        void Close()
+        private void Close()
         {
             client.Close();
         }
@@ -150,6 +151,7 @@ namespace Client
             ListViewItem item = new ListViewItem();
             item.ImageIndex = id;
             lVChat.Items.Add(item);
+            
 
         }
 
@@ -162,7 +164,7 @@ namespace Client
                 open.ShowDialog();
                 path = open.FileName;
                 Image image = Image.FromFile(path);
-                byte[] data = new byte[1024 * 2000];//~2MB
+                byte[] data = new byte[1024 * 9000];//~2MB
                 data = Serialize(image);
                 FileInfo fi = new FileInfo(path);
                 if (fi.Length > data.Length)

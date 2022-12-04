@@ -188,7 +188,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(459, 451);
+            this.ClientSize = new System.Drawing.Size(459, 455);
             this.Controls.Add(this.btn_regis);
             this.Controls.Add(this.btn_Signin);
             this.Controls.Add(this.lblNotiPas);
@@ -201,9 +201,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(475, 494);
             this.Name = "FrmLogin";
-            this.Text = "LoginC";
+            this.Text = "LOGINCLIENT";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmLogin_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmLogin_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

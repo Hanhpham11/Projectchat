@@ -36,12 +36,12 @@
             this.imageL = new System.Windows.Forms.ImageList(this.components);
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.saoChépToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chuyểnTiếpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtMessenger = new System.Windows.Forms.TextBox();
             this.lVChat = new System.Windows.Forms.ListView();
             this.btn_send = new Client.VBButton();
             this.btnImage = new System.Windows.Forms.Button();
-            this.saoChépToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.chuyểnTiếpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -77,13 +77,13 @@
             // imageL
             // 
             this.imageL.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imageL.ImageSize = new System.Drawing.Size(130, 130);
+            this.imageL.ImageSize = new System.Drawing.Size(190, 180);
             this.imageL.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // xóaToolStripMenuItem
             // 
             this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
-            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.xóaToolStripMenuItem.Text = "Thu hồi";
             this.xóaToolStripMenuItem.Click += new System.EventHandler(this.xóaToolStripMenuItem_Click);
             // 
@@ -95,10 +95,23 @@
             this.saoChépToolStripMenuItem,
             this.chuyểnTiếpToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 70);
+            // 
+            // saoChépToolStripMenuItem
+            // 
+            this.saoChépToolStripMenuItem.Name = "saoChépToolStripMenuItem";
+            this.saoChépToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.saoChépToolStripMenuItem.Text = "Sao chép";
+            // 
+            // chuyểnTiếpToolStripMenuItem
+            // 
+            this.chuyểnTiếpToolStripMenuItem.Name = "chuyểnTiếpToolStripMenuItem";
+            this.chuyểnTiếpToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.chuyểnTiếpToolStripMenuItem.Text = "Chuyển tiếp";
             // 
             // txtMessenger
             // 
+            this.txtMessenger.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtMessenger.Location = new System.Drawing.Point(69, 448);
             this.txtMessenger.Multiline = true;
             this.txtMessenger.Name = "txtMessenger";
@@ -109,11 +122,13 @@
             // 
             this.lVChat.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.lVChat.BackgroundImage = global::Server.Properties.Resources.bg;
+            this.lVChat.BackgroundImageTiled = true;
             this.lVChat.ContextMenuStrip = this.contextMenuStrip1;
             this.lVChat.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lVChat.HideSelection = false;
             this.lVChat.LargeImageList = this.imageL;
             this.lVChat.Location = new System.Drawing.Point(69, 6);
+            this.lVChat.MaximumSize = new System.Drawing.Size(515, 442);
             this.lVChat.Name = "lVChat";
             this.lVChat.Size = new System.Drawing.Size(515, 442);
             this.lVChat.SmallImageList = this.imageL;
@@ -154,18 +169,6 @@
             this.btnImage.UseVisualStyleBackColor = false;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
-            // saoChépToolStripMenuItem
-            // 
-            this.saoChépToolStripMenuItem.Name = "saoChépToolStripMenuItem";
-            this.saoChépToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.saoChépToolStripMenuItem.Text = "Sao chép";
-            // 
-            // chuyểnTiếpToolStripMenuItem
-            // 
-            this.chuyểnTiếpToolStripMenuItem.Name = "chuyểnTiếpToolStripMenuItem";
-            this.chuyểnTiếpToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.chuyểnTiếpToolStripMenuItem.Text = "Chuyển tiếp";
-            // 
             // FrmServer
             // 
             this.AcceptButton = this.btn_send;
@@ -178,6 +181,7 @@
             this.Controls.Add(this.txtMessenger);
             this.Controls.Add(this.lVChat);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(605, 545);
             this.Name = "FrmServer";
             this.Text = "SERVER";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmServer_FormClosed);

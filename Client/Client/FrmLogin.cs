@@ -79,5 +79,10 @@ namespace Client
             frmR.Show();
             this.Hide();
         }
+
+        private void FrmLogin_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

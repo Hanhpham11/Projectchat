@@ -62,8 +62,9 @@ namespace Server
             Listen.IsBackground = true;
             Listen.Start();
         }
+
         //Đóng kết nối hiện thời 
-        void Close()
+        private void Close()
         {
             server.Close();
         }
@@ -152,6 +153,7 @@ namespace Server
         {
             DateTime dt = DateTime.Now;
             lVChat.Items.Add(new ListViewItem() { Text = "Server: " + s + " " + "(" + dt.Hour + ":" + dt.Minute + ")" });
+            
         }
         private void btn_send_Click(object sender, EventArgs e)
         {
@@ -170,7 +172,6 @@ namespace Server
             ListViewItem item = new ListViewItem();
             item.ImageIndex = id;
             lVChat.Items.Add(item);
-
         }
 
         private void btnImage_Click(object sender, EventArgs e)
@@ -194,11 +195,10 @@ namespace Server
                 {
                     foreach (Socket item in clientList)
                     {
-                        item.Send(data);
-                        addImg(path);
+                        item.Send(data);   
                     }
+                    addImg(path);
                 }
-
             }
             catch (Exception)
             {
