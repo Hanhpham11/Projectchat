@@ -45,32 +45,24 @@ namespace Server
             {
                 lblNotiPas.Text = "Nhập mật khẩu";
                 txbPass.Focus();
-            }else if (pass.Length < 8)
+            }
+            conn.Open();
+            string sql = " select * from[User] where Taikhoan= '" + user + "'and matkhau='" + pass + "'";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            SqlDataReader dt = cmd.ExecuteReader();
+            if (dt.Read())
             {
-                
-                    lblNotiPas.Text = "Độ dài mật khẩu phải dài hơn 8 ký tự";
-                    txbUsername.SelectAll();
+                FrmServer frmM = new FrmServer();
+                frmM.Show();
+                this.Hide();
             }
             else
             {
-                conn.Open();
-                string sql = " select * from[User] where Taikhoan= '" + user + "'and matkhau='" + pass + "'";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                SqlDataReader dt = cmd.ExecuteReader();
-                if (dt.Read())
-                {
-                    //MessageBox.Show("Đăng nhập thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    FrmServer frmM = new FrmServer();
-                    frmM.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Username hoặc Password không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    conn.Close();
-                    return;
-                }
+                MessageBox.Show("Username hoặc Password không đúng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                conn.Close();
+                return;
             }
         }
     }
 }
+

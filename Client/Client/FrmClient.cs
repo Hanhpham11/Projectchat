@@ -43,10 +43,8 @@ namespace Client
             catch
             {
                 MessageBox.Show("Không thể kết nối Server!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                Application.Exit();
             }
-
-
 
             Thread listen = new Thread(Receive);
             listen.IsBackground = true;
@@ -63,6 +61,9 @@ namespace Client
             if (txtMessenger.Text != string.Empty)
             {
                 client.Send(Serialize(lblFullname.Text+ ":" + txtMessenger.Text));
+            }
+            else{
+	             MessageBox.Show("Không để trống", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         DateTime dt = DateTime.Now;
@@ -188,8 +189,8 @@ namespace Client
             {
                 if (chonItem == -1)
                     return;
-                lVChat.Items[chonItem].Text = "Đã Xóa";
-                lVChat.Items[chonItem].ImageKey = "";
+                lVChat.Items[chonItem].Text = "Tin nhắn đã được thu hồi";
+                lVChat.Items[chonItem].ImageKey = "Tin nhắn đã được thu hồi";
             }
             catch
             {

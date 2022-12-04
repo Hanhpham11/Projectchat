@@ -28,16 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClient));
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtMessenger = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.imageL = new System.Windows.Forms.ImageList(this.components);
+            this.imageL = new System.Windows.Forms.ImageList();
             this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,6 +44,8 @@
             this.lVChat = new System.Windows.Forms.ListView();
             this.lblFullname = new System.Windows.Forms.Label();
             this.btn_send = new Client.VBButton();
+            this.saoChépToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.chuyểnTiếpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -97,17 +98,19 @@
             // xóaToolStripMenuItem
             // 
             this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
-            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
-            this.xóaToolStripMenuItem.Text = "Xóa";
+            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.xóaToolStripMenuItem.Text = "Thu hồi";
             this.xóaToolStripMenuItem.Click += new System.EventHandler(this.xóaToolStripMenuItem_Click);
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.xóaToolStripMenuItem});
+            this.xóaToolStripMenuItem,
+            this.saoChépToolStripMenuItem,
+            this.chuyểnTiếpToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(95, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 70);
             // 
             // panel1
             // 
@@ -199,6 +202,18 @@
             this.btn_send.UseVisualStyleBackColor = false;
             this.btn_send.Click += new System.EventHandler(this.btn_send_Click);
             // 
+            // saoChépToolStripMenuItem
+            // 
+            this.saoChépToolStripMenuItem.Name = "saoChépToolStripMenuItem";
+            this.saoChépToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.saoChépToolStripMenuItem.Text = "Sao chép";
+            // 
+            // chuyểnTiếpToolStripMenuItem
+            // 
+            this.chuyểnTiếpToolStripMenuItem.Name = "chuyểnTiếpToolStripMenuItem";
+            this.chuyểnTiếpToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.chuyểnTiếpToolStripMenuItem.Text = "Chuyển tiếp";
+            // 
             // FrmClient
             // 
             this.AcceptButton = this.btn_send;
@@ -239,5 +254,7 @@
         private System.Windows.Forms.ListView lVChat;
         private VBButton btn_send;
         private System.Windows.Forms.Label lblFullname;
+        private System.Windows.Forms.ToolStripMenuItem saoChépToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem chuyểnTiếpToolStripMenuItem;
     }
 }

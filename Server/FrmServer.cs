@@ -145,13 +145,13 @@ namespace Server
         }
         private void FrmServer_FormClosed(object sender, FormClosedEventArgs e)
         {
-
+            Close();
         }
         //Add message vào khung chat
         void AddMessage(string s)
         {
             DateTime dt = DateTime.Now;
-            lVChat.Items.Add(new ListViewItem() { Text =  s + " " + "(" + dt.Hour + ":" + dt.Minute + ")" });
+            lVChat.Items.Add(new ListViewItem() { Text = "Server: " + s + " " + "(" + dt.Hour + ":" + dt.Minute + ")" });
         }
         private void btn_send_Click(object sender, EventArgs e)
         {
@@ -211,8 +211,8 @@ namespace Server
             {
                 if (chonItem == -1)
                     return;
-                lVChat.Items[chonItem].Text = "Đã Xóa";
-                lVChat.Items[chonItem].ImageKey = "";
+                lVChat.Items[chonItem].Text = "Tin nhắn đã được thu hồi";
+                lVChat.Items[chonItem].ImageKey = "Tin nhắn đã được thu hồi";
             }
             catch
             {
