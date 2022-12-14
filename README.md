@@ -1,5 +1,5 @@
 # Projectchat
 Run form Server first
 Server login
-username admin
+username: admin
 pass: 1234
